@@ -18,11 +18,11 @@ export class DataComponent implements OnInit {
 
   constructor(private http: Http) {}
   ngOnInit() {
-    this.getData().subscribe(data => {
-        this.data = data;
-        console.log(this.data);
-      });
-      
+    // this.getData().subscribe(data => {
+    //     this.data = data;
+    //     console.log(this.data);
+    //   });
+
     this.minutes = this.intervalPeriod * 60 * 1000;
     this.subscription$ = interval(this.minutes)
       .pipe(flatMap(() => this.getData()))
@@ -35,11 +35,8 @@ export class DataComponent implements OnInit {
   getData() {
     return this.http
       .get(this.apiUrl)
-      .pipe(map((response: any) => (
-        response.json()
-        )));
+      .pipe(map((response: any) => response.json()));
   }
-
 
   ngOnDestroy() {
     this.subscription$.unsubscribe();
