@@ -18,10 +18,10 @@ export class DataComponent implements OnInit {
 
   constructor(private http: Http) {}
   ngOnInit() {
-    // this.getData().subscribe(data => {
-    //     this.data = data;
-    //     console.log(this.data);
-    //   });
+    this.getData().subscribe(data => {
+        this.data = data;
+        console.log(this.data);
+      });
 
     this.minutes = this.intervalPeriod * 60 * 1000;
     this.subscription$ = interval(this.minutes)
