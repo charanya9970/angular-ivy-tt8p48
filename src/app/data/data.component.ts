@@ -31,7 +31,7 @@ export class DataComponent implements OnInit {
   getData() {
     return this.http
       .get(this.apiUrl)
-      .pipe(map((response: any) => (this.data = response.json())));
+      .pipe(map((response: any) => ( response.json())));
   }
 
   ngOnDestroy() {
