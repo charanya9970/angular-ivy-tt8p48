@@ -20,7 +20,7 @@ export class DataComponent implements OnInit {
   ngOnInit() {
     // this.data = this.getData();
     this.minutes = this.intervalPeriod * 60 * 1000;
-    this.subscription$ = interval(30000)
+    this.subscription$ = interval(this.minutes)
       .pipe(flatMap(() => this.getData()))
       .subscribe(data => {
         this.data = data;
