@@ -18,7 +18,7 @@ export class DataComponent implements OnInit {
 
   constructor(private http: Http) {}
   ngOnInit() {
-    this.getData();
+    this.data = this.getData();
     this.minutes = this.intervalPeriod * 60 * 1000;
     this.subscription$ = interval(this.minutes)
       .pipe(flatMap(() => this.getData()))
